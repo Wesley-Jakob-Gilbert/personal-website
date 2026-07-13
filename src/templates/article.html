@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} — {{ site.title }}{% endblock %}
+{% block description %}{{ article.excerpt }}{% endblock %}
+{% block og_title %}{{ article.title }}{% endblock %}
+{% block og_description %}{{ article.excerpt }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_url %}{{ article.url }}{% endblock %}
+{% block canonical %}{{ article.url }}{% endblock %}
+
+{% if article.image %}
+{% block og_image %}{{ site.url }}/assets/img/articles/{{ article.image }}{% endblock %}
+{% endif %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "{{ article.title }}",
+  "description": "{{ article.excerpt }}",
+  "datePublished": "{{ article.date }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "url": "{{ site.url }}{{ article.url }}"
+  {% if article.image %},
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ site.url }}/assets/img/articles/{{ article.image }}",
+    "description": "{{ article.image_alt | default(article.title) }}"
+  }
+  {% endif %}
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{% if article.image %}
+<img
+  class="article-hero-img"
+  src="/assets/img/articles/{{ article.image }}"
+  alt="{{ article.image_alt | default(article.title) }}"
+  width="1200" height="514">
+{% endif %}
+
+<header class="article-header {% if not article.image %}" style="padding-top: calc(var(--nav-h) + 4rem){% endif %}">
+
+  {% if article.tags %}
+  <ul class="article-tags" aria-label="Tags">
+    {% for tag in article.tags %}
+    <li class="tag">{{ tag }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h1>{{ article.title }}</h1>
+
+  <p class="article-meta">
+    {{ site.author.name }} &nbsp;·&nbsp; {{ article.date }}
+  </p>
+
+</header>
+
+<article class="article-body">
+  {{ article.content }}
+</article>
+
+{% endblock %}

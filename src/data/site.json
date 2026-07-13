@@ -1,0 +1,36 @@
+{
+  "title": "Wesley Gilbert",
+  "tagline": "Biophysicist · Engineer · Builder",
+  "description": "Biophysicist and engineer working at the intersection of synthetic biology, computational biophysics, and semiconductor infrastructure.",
+  "motto": "Aut inveniam viam aut faciam",
+  "url": "https://wesley-j-gilbert.com",
+  "author": {
+    "name": "Wesley J. Gilbert",
+    "email": "wslgilbert50@gmail.com",
+    "github": "https://github.com/PLACEHOLDER",
+    "linkedin": "https://linkedin.com/in/PLACEHOLDER",
+    "youtube": "https://youtube.com/@PLACEHOLDER",
+    "twitter": "PLACEHOLDER"
+  },
+  "about": {
+    "short": "I'm a biophysicist and engineer chasing problems at the edge of what's possible — from the mechanics of living cells to the manufacturing of next-generation chips.",
+    "extended": "My work spans synthetic biology, computational biophysics, and semiconductor packaging. I build open-source tools, write about the science, and try to leave every system I touch more understandable than I found it."
+  },
+  "focus_areas": [
+    {
+      "number": "01",
+      "title": "Synthetic Biology",
+      "description": "Genetic engineering, lipid nanoparticle delivery systems, and the molecular machinery of living cells. Currently developing open-source tools for LNP formulation prediction."
+    },
+    {
+      "number": "02",
+      "title": "Computational Biophysics",
+      "description": "Finite element analysis of bone remodeling, cellular mechanobiology, and the numerical methods that turn biology into tractable equations."
+    },
+    {
+      "number": "03",
+      "title": "Systems & Infrastructure",
+      "description": "Disaggregated semiconductor packaging at Intel, containerized APIs, cloud deployment, and the engineering discipline of making complex systems reliable at scale."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}{{ site.title }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
+
+  <!-- Open Graph — controls how links look when shared on Slack, Twitter, iMessage, etc. -->
+  <meta property="og:title"       content="{% block og_title %}{{ site.title }}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{{ site.description }}{% endblock %}">
+  <meta property="og:image"       content="{% block og_image %}{{ site.url }}/assets/img/og-default.jpg{% endblock %}">
+  <meta property="og:url"         content="{{ site.url }}{% block og_url %}{% endblock %}">
+  <meta property="og:type"        content="{% block og_type %}website{% endblock %}">
+  <meta property="og:site_name"   content="{{ site.title }}">
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card"    content="summary_large_image">
+  <meta name="twitter:creator" content="@{{ site.author.twitter }}">
+
+  <!-- Canonical URL tells Google which page is authoritative when duplicates exist -->
+  <link rel="canonical" href="{{ site.url }}{% block canonical %}{% endblock %}">
+
+  <!-- Fonts: Playfair Display (editorial serif) + Inter (clean sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Structured data (JSON-LD): machine-readable metadata Google uses for rich results -->
+  {% block jsonld %}{% endblock %}
+</head>
+<body>
+
+  <nav id="site-nav">
+    <a href="/" class="nav-logo">Wesley Gilbert</a>
+    <ul class="nav-links">
+      <li><a href="/articles/">Articles</a></li>
+      <li><a href="{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer id="site-footer">
+    <p class="motto"><em>{{ site.motto }}</em></p>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="{{ site.author.github }}"  target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="{{ site.author.youtube }}" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="mailto:{{ site.author.email }}">Email</a>
+    </nav>
+    <p class="copyright">{{ site.author.name }}</p>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
