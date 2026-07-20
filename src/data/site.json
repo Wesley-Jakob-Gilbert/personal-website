@@ -22,11 +22,13 @@
     {
       "number": "01",
       "title": "LNP-EE-Predictor",
+      "url": "https://github.com/Wesley-Jakob-Gilbert/lipid-nanoparticle-ee-predictor",
       "description": "Building on work by the LNP Atlas and LNPDB groups at the Korea Institute for Science and Technology and MIT, curating an open-source database of lipid nanoparticle formulations for ML analysis. Developing, alongside Constantinos Skevofilax, a dockerized API with pre-processing, ML training, and analysis code in Python to predict encapsulation efficiency of novel LNP formulations."
     },
     {
       "number": "02",
       "title": "Cranio-Facial FEA",
+      "url": "https://github.com/Wesley-Jakob-Gilbert/cranio-facial-fea",
       "description": "A finite element analysis model for cranio-facial bone remodeling, focused on orthotropic pressures — tongue pressure vs. mouth breathing — and their long-term morphological effects."
     },
     {

@@ -133,6 +133,20 @@ h1 {
   font-size: 1.75rem;
 }
 
+/* Site title on the home page: large, centered, spans column width */
+.site-title {
+  margin: 3.5rem 0 2.5rem;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+}
+
 h2 {
   margin: 3rem 0 1rem;
   font-size: 1.25rem;

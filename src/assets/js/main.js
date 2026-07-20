@@ -3,16 +3,21 @@ const toggle = document.getElementById('theme-toggle');
 
 if (toggle) {
   const root = document.documentElement;
+
+  const currentTheme = () =>
+    root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+
   const setLabel = () => {
-    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
     toggle.setAttribute('aria-label', `Switch to ${next} mode`);
   };
 
   setLabel();
+
   toggle.addEventListener('click', () => {
-    const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = theme;
-    localStorage.setItem('theme', theme);
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (_) {}
     setLabel();
   });
 }

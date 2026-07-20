@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block content %}
-<h1>Wesley Gilbert</h1>
+<h1 class="site-title">Wesley Jakob Gilbert</h1>
 
 <p>{{ site.about.short }}</p>
 <p>{{ site.about.extended }}</p>
@@ -31,7 +31,7 @@
   <h2 id="focus-heading">Focus</h2>
   <dl>
     {% for area in site.focus_areas %}
-    <dt>{{ area.title }}</dt>
+    <dt>{% if area.url %}<a href="{{ area.url }}" target="_blank" rel="noopener noreferrer">{{ area.title }}</a>{% else %}{{ area.title }}{% endif %}</dt>
     <dd>{{ area.description }}</dd>
     {% endfor %}
   </dl>
