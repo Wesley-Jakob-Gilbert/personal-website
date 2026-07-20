@@ -51,14 +51,14 @@
   </header>
 
   {% if article.image %}
-  <figure>
-    <img src="/assets/img/articles/{{ article.image }}" alt="{{ article.image_alt | default(article.title) }}" width="640" height="360">
+  <figure class="article-figure">
+    <img src="/assets/img/articles/{{ article.image }}" alt="{{ article.image_alt | default(article.title) }}" loading="lazy">
     {% if article.image_caption %}<figcaption>{{ article.image_caption }}</figcaption>{% endif %}
   </figure>
   {% endif %}
 
   <div class="article-body">
-    {{ article.content }}
+    {{ article.content | safe }}
   </div>
 </article>
 {% endblock %}
