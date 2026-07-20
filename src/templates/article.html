@@ -16,7 +16,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ScholarlyArticle",
+  "@type": "Article",
   "headline": "{{ article.title }}",
   "description": "{{ article.excerpt }}",
   "datePublished": "{{ article.date }}",
@@ -43,35 +43,22 @@
 {% endblock %}
 
 {% block content %}
+<article class="article">
+  <header class="article-header">
+    <p class="article-meta">{{ site.author.name }}{% if article.date %} — {{ article.date }}{% endif %}</p>
+    <h1>{{ article.title }}</h1>
+    {% if article.excerpt %}<p class="muted">{{ article.excerpt }}</p>{% endif %}
+  </header>
 
-{% if article.image %}
-<img
-  class="article-hero-img"
-  src="/assets/img/articles/{{ article.image }}"
-  alt="{{ article.image_alt | default(article.title) }}"
-  width="1200" height="514">
-{% endif %}
-
-<header class="article-header {% if not article.image %}" style="padding-top: calc(var(--nav-h) + 4rem){% endif %}">
-
-  {% if article.tags %}
-  <ul class="article-tags" aria-label="Tags">
-    {% for tag in article.tags %}
-    <li class="tag">{{ tag }}</li>
-    {% endfor %}
-  </ul>
+  {% if article.image %}
+  <figure>
+    <img src="/assets/img/articles/{{ article.image }}" alt="{{ article.image_alt | default(article.title) }}" width="640" height="360">
+    {% if article.image_caption %}<figcaption>{{ article.image_caption }}</figcaption>{% endif %}
+  </figure>
   {% endif %}
 
-  <h1>{{ article.title }}</h1>
-
-  <p class="article-meta">
-    {{ site.author.name }} &nbsp;·&nbsp; {{ article.date }}
-  </p>
-
-</header>
-
-<article class="article-body">
-  {{ article.content }}
+  <div class="article-body">
+    {{ article.content }}
+  </div>
 </article>
-
 {% endblock %}
