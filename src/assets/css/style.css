@@ -90,6 +90,7 @@ button {
 }
 
 #theme-toggle {
+  pointer-events: auto;
   position: fixed;
   top: 1rem;
   right: 1rem;
@@ -133,18 +134,26 @@ h1 {
   font-size: 1.75rem;
 }
 
-/* Site title on the home page: large, centered, spans column width */
+/* Site title: SVG that stretches text to exactly the column width */
 .site-title {
   margin: 3.5rem 0 2.5rem;
-  font-size: clamp(2rem, 6vw, 3.25rem);
-  font-weight: 700;
-  line-height: 1.05;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
   padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-title svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.site-title text {
+  fill: var(--text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 h2 {

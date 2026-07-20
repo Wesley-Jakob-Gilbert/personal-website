@@ -22,7 +22,11 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="site-title">Wesley Jakob Gilbert</h1>
+<h1 class="site-title" aria-label="Wesley Jakob Gilbert">
+  <svg viewBox="0 0 100 12" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
+    <text x="50" y="10" text-anchor="middle" textLength="98" lengthAdjust="spacingAndGlyphs" font-size="10">WESLEY JAKOB GILBERT</text>
+  </svg>
+</h1>
 
 <p>{{ site.about.short }}</p>
 <p>{{ site.about.extended }}</p>
