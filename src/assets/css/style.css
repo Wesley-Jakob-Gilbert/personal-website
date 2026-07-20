@@ -89,6 +89,116 @@ button {
   text-decoration: none;
 }
 
+/* Social rail: desktop-only vertical sidebar on the left edge */
+#social-rail {
+  position: fixed;
+  top: 50%;
+  left: 1.25rem;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+#social-rail ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#social-rail a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--text-muted);
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+#social-rail a:hover,
+#social-rail a:focus-visible {
+  color: var(--accent);
+  background: var(--bg-alt);
+  transform: translateY(-1px);
+}
+
+#social-rail svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hide the sidebar on tablet/mobile; Elsewhere section in body takes over */
+@media (max-width: 900px) {
+  #social-rail { display: none; }
+}
+
+/* Hide the in-body Elsewhere list on desktop where the rail is present */
+@media (min-width: 901px) {
+  .elsewhere-mobile { display: none; }
+}
+
+/* Two-column About Me: text left, photo right on desktop; stacked on mobile */
+.about-me {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 0 0 3rem;
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .about-me {
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.about-text p:first-child { margin-top: 0; }
+.about-text p:last-child  { margin-bottom: 0; }
+
+.about-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.avatar-placeholder {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  letter-spacing: 0.05em;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 #theme-toggle {
   pointer-events: auto;
   position: fixed;

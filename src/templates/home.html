@@ -28,8 +28,19 @@
   </svg>
 </h1>
 
-<p>{{ site.about.short }}</p>
-<p>{{ site.about.extended }}</p>
+<section class="about-me" aria-labelledby="about-heading">
+  <h2 id="about-heading" class="visually-hidden">About</h2>
+  <div class="about-text">
+    <p>{{ site.about.short }}</p>
+    <p>{{ site.about.extended }}</p>
+  </div>
+  <div class="about-photo">
+    <!-- OUTLINE: replace with real headshot at src/assets/img/wes.jpg then swap the div below for <img src="/assets/img/wes.jpg" alt="Wesley Jakob Gilbert" />. -->
+    <div class="avatar-placeholder" role="img" aria-label="Wesley Jakob Gilbert">
+      <span>WJG</span>
+    </div>
+  </div>
+</section>
 
 <section aria-labelledby="focus-heading">
   <h2 id="focus-heading">Focus</h2>
@@ -52,11 +63,11 @@
   </ul>
 </section>
 
-<section aria-labelledby="elsewhere-heading">
+<section class="elsewhere-mobile" aria-labelledby="elsewhere-heading">
   <h2 id="elsewhere-heading">Elsewhere</h2>
   <ul>
     {% for item in site.elsewhere %}
-    <li><a href="{{ item.url }}"{% if item.url.startswith('http') %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a> — <span class="muted">{{ item.note }}</span></li>
+    <li><a href="{{ item.url }}"{% if item.url.startswith('http') %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a></li>
     {% endfor %}
   </ul>
 </section>
