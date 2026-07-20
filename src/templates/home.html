@@ -30,12 +30,14 @@
 
 <section class="about-me" aria-labelledby="about-heading">
   <h2 id="about-heading" class="visually-hidden">About</h2>
-  <div class="about-text">
-    <p>{{ site.about.short }}</p>
-    <p>{{ site.about.extended }}</p>
-  </div>
-  <div class="about-photo">
-    <img src="/assets/img/Wes.jpg" alt="Wesley Jakob Gilbert" width="220" height="220" loading="eager" />
+  <p class="about-intro">{{ site.about.short }}</p>
+  <div class="about-columns">
+    <div class="about-text">
+      <p>{{ site.about.extended }}</p>
+    </div>
+    <div class="about-photo">
+      <img src="/assets/img/Wes.jpg" alt="Wesley Jakob Gilbert" loading="eager" />
+    </div>
   </div>
 </section>
 

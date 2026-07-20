@@ -139,19 +139,30 @@ button {
   .elsewhere-mobile { display: none; }
 }
 
-/* Two-column About Me: text left, photo right on desktop; stacked on mobile */
+/* About Me: full-width intro paragraph, then two-column row below
+   where the second paragraph sits next to the headshot circle. The
+   circle is sized off the text column's natural height so the two
+   are visually height-matched. */
 .about-me {
+  margin: 0 0 3rem;
+}
+
+.about-intro {
+  margin: 0 0 1.5rem;
+}
+
+.about-columns {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  margin: 0 0 3rem;
-  align-items: start;
+  align-items: center;
 }
 
 @media (min-width: 640px) {
-  .about-me {
+  .about-columns {
     grid-template-columns: 1.6fr 1fr;
     gap: 2.5rem;
+    align-items: start;
   }
 }
 
@@ -161,16 +172,37 @@ button {
 .about-photo {
   display: flex;
   justify-content: center;
+  align-self: center;
 }
 
 .about-photo img {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
+  /* Circle diameter tracks the row height on desktop so the photo
+     matches the height of the paragraph beside it. On mobile the
+     row collapses and the circle falls back to a comfortable size. */
+  width: 220px;
+  height: 220px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
   border: 1px solid var(--border);
+}
+
+@media (min-width: 640px) {
+  .about-columns { position: relative; }
+
+  /* Anchor the photo to the row so it fills the available height */
+  .about-photo {
+    align-self: stretch;
+    align-items: center;
+  }
+
+  .about-photo img {
+    width: auto;
+    height: 100%;
+    max-height: 260px;
+    min-height: 180px;
+    aspect-ratio: 1 / 1;
+  }
 }
 
 .visually-hidden {
