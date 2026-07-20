@@ -7,10 +7,10 @@
   "author": {
     "name": "Wesley J. Gilbert",
     "email": "wslgilbert50@gmail.com",
-    "github": "https://github.com/PLACEHOLDER",
-    "linkedin": "https://linkedin.com/in/PLACEHOLDER",
-    "youtube": "https://youtube.com/@PLACEHOLDER",
-    "twitter": "PLACEHOLDER"
+    "github": "https://github.com/Wesley-Jakob-Gilbert",
+    "linkedin": "https://www.linkedin.com/in/wes-j-gilbert",
+    "youtube": "https://www.youtube.com/channel/UCTPW-KFRLMGWXwxvR8vFcUg",
+    "twitter": "WesleyGilbert12"
   },
   "about": {
     "short": "I'm a biophysicist and engineer chasing problems at the edge of what's possible — from the mechanics of living cells to the manufacturing of next-generation chips.",
@@ -31,6 +31,33 @@
       "number": "03",
       "title": "Systems & Infrastructure",
       "description": "Disaggregated semiconductor packaging at Intel, containerized APIs, cloud deployment, and the engineering discipline of making complex systems reliable at scale."
+    }
+  ],
+  "elsewhere": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/Wesley-Jakob-Gilbert",
+      "note": "Open-source code"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/wes-j-gilbert",
+      "note": "Professional background"
+    },
+    {
+      "label": "YouTube",
+      "url": "https://www.youtube.com/channel/UCTPW-KFRLMGWXwxvR8vFcUg",
+      "note": "Science explainers"
+    },
+    {
+      "label": "X",
+      "url": "https://x.com/WesleyGilbert12",
+      "note": "Short-form"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:wslgilbert50@gmail.com",
+      "note": "wslgilbert50@gmail.com"
     }
   ]
 }
