@@ -199,8 +199,34 @@ li {
 
 .motto {
   margin-top: 3.5rem;
+  margin-bottom: 0;
+  padding-left: 0;
+  border-left: none;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.motto p { margin: 0; }
+
+.motto-attr {
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-style: normal;
+}
+
+.motto-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
   color: var(--text-muted);
   font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
 }
 
 .article-list {

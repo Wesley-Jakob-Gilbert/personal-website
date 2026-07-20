@@ -57,5 +57,14 @@
   </ul>
 </section>
 
-<p class="motto"><em>{{ site.motto }}</em></p>
+<!-- OUTLINE: /portfolio subpage lands in Phase 2 once the drawing pad arrives. Will host the Blender bird-flock hero animation as full-viewport background plus CG art gallery. Wes to write intro copy at that time. -->
+
+<blockquote class="motto">
+  <p><em>&ldquo;{{ site.motto }}&rdquo;</em></p>
+  {% if site.motto_attribution %}<p class="motto-attr">&mdash; {{ site.motto_attribution }}</p>{% endif %}
+</blockquote>
+
+{% if site.motto_footer %}
+<p class="motto-footer"><em>{{ site.motto_footer }}</em></p>
+{% endif %}
 {% endblock %}
