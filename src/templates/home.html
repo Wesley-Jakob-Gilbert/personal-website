@@ -51,6 +51,17 @@
   </dl>
 </section>
 
+<section aria-labelledby="education-heading">
+  <h2 id="education-heading">Education</h2>
+  <dl>
+    {% for edu in site.education %}
+    <dt>{{ edu.institution }}</dt>
+    <dd class="edu-credential">{{ edu.credential }}</dd>
+    {% if edu.detail %}<dd>{{ edu.detail }}</dd>{% endif %}
+    {% endfor %}
+  </dl>
+</section>
+
 <section aria-labelledby="writing-heading">
   <h2 id="writing-heading">Writing</h2>
   <ul>
