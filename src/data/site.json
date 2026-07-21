@@ -37,6 +37,13 @@
       "description": "Advanced semiconductor packaging at Intel's Fab 9 in Albuquerque. Maintenance of the singulated die sort toolset, SOP design, process health monitoring, and QMS development. Ramped module availability from ~50% to ~92% as owner of operational indicators, reduced backside mylar residue defect rate from 18% to 0% over three months, and deployed a new operational-efficiency analytics dashboard."
     }
   ],
+  "education": [
+    {
+      "institution": "University of Texas at Austin",
+      "credential": "B.S. Biophysics · Certificate in Scientific Computation and Data Science",
+      "detail": "Senior biophysics thesis on cellular mechanobiology — how extracellular matrix mechanics shape genetic expression, and how mechano-transduction pathways drive bone remodeling in response to sport and loading. Data science certificate work analyzed City of Austin crime statistics."
+    }
+  ],
   "elsewhere": [
     {"label": "GitHub",   "url": "https://github.com/Wesley-Jakob-Gilbert",                        "note": "Open-source code"},
     {"label": "LinkedIn", "url": "https://www.linkedin.com/in/wes-j-gilbert",                      "note": "Professional background"},

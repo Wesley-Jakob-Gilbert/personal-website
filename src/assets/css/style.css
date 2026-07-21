@@ -327,6 +327,14 @@ dd {
   color: var(--text-muted);
 }
 
+/* Education credential line: less muted than the detail below it */
+dd.edu-credential {
+  color: var(--text);
+  font-size: 0.95rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.35rem;
+}
+
 ul,
 ol {
   margin: 0 0 1.25rem 1.4rem;
