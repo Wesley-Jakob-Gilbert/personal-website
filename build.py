@@ -82,10 +82,10 @@ def parse_articles() -> list[dict]:
     return articles
 
 
-def render_home(env: Environment, site: dict) -> None:
+def render_home(env: Environment, site: dict, articles: list[dict]) -> None:
     tmpl = env.get_template("home.html")
     (DIST / "index.html").write_text(
-        tmpl.render(site=site), encoding="utf-8"
+        tmpl.render(site=site, articles=articles[:5]), encoding="utf-8"
     )
 
 
@@ -149,7 +149,7 @@ def build() -> None:
     articles = parse_articles()
 
     copy_assets()
-    render_home(env, site)
+    render_home(env, site, articles)
     render_articles_index(env, site, articles)
     render_article_pages(env, site, articles)
     write_sitemap(site, articles)

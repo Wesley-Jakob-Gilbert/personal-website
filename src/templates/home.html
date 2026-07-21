@@ -14,98 +14,71 @@
   "sameAs": [
     "{{ site.author.github }}",
     "{{ site.author.linkedin }}",
-    "{{ site.author.youtube }}"
+    "{{ site.author.youtube }}",
+    "https://x.com/{{ site.author.twitter }}"
   ]
 }
 </script>
 {% endblock %}
 
 {% block content %}
+<h1 class="site-title" aria-label="Wesley Jakob Gilbert">
+  <svg viewBox="0 0 100 12" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true">
+    <text x="50" y="10" text-anchor="middle" textLength="98" lengthAdjust="spacingAndGlyphs" font-size="10">WESLEY JAKOB GILBERT</text>
+  </svg>
+</h1>
 
-<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
-<section id="hero" aria-label="Introduction">
-
-  <div class="hero-media">
-    <!--
-      TODO: Replace .hero-placeholder with a <video> element once the Blender
-      animation is exported. Example:
-
-      <video
-        autoplay muted loop playsinline
-        data-loop-start="8"
-        poster="/assets/img/hero-poster.jpg">
-        <source src="/assets/video/birds-intro.webm" type="video/webm">
-        <source src="/assets/video/birds-intro.mp4"  type="video/mp4">
-      </video>
-
-      data-loop-start is the timestamp (seconds) where the single-bird glide
-      section begins — main.js will jump back there on every loop.
-    -->
-    <div class="hero-placeholder" aria-hidden="true"></div>
-  </div>
-
-  <div class="hero-overlay" aria-hidden="true"></div>
-
-  <div class="hero-content">
-    <p class="hero-motto">{{ site.motto }}</p>
-    <h1 class="hero-name">{{ site.title }}</h1>
-    <p class="hero-tagline">{{ site.tagline }}</p>
-  </div>
-
-  <div class="scroll-hint" aria-hidden="true">scroll</div>
-
-</section>
-
-<!-- ── About ─────────────────────────────────────────────────────────────── -->
-<section id="about">
-  <div class="section">
-    <p class="section-label">About</p>
-    <div class="about-grid fade-in">
-      <div class="about-bio">
-        <p>{{ site.about.short }}</p>
-        <p>{{ site.about.extended }}</p>
-      </div>
-      <nav class="about-links" aria-label="Social links">
-        <a class="about-link" href="{{ site.author.github }}" target="_blank" rel="noopener noreferrer">
-          <span class="link-label">GitHub</span>
-          Open-source projects &amp; code
-        </a>
-        <a class="about-link" href="{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">
-          <span class="link-label">LinkedIn</span>
-          Professional background
-        </a>
-        <a class="about-link" href="{{ site.author.youtube }}" target="_blank" rel="noopener noreferrer">
-          <span class="link-label">YouTube</span>
-          Science explainers &amp; research
-        </a>
-        <a class="about-link" href="/articles/">
-          <span class="link-label">Articles</span>
-          Papers, notebooks &amp; diagrams
-        </a>
-        <a class="about-link" href="mailto:{{ site.author.email }}">
-          <span class="link-label">Email</span>
-          {{ site.author.email }}
-        </a>
-      </nav>
+<section class="about-me" aria-labelledby="about-heading">
+  <h2 id="about-heading" class="visually-hidden">About</h2>
+  <p class="about-intro">{{ site.about.short }}</p>
+  <div class="about-columns">
+    <div class="about-text">
+      <p>{{ site.about.extended }}</p>
+    </div>
+    <div class="about-photo">
+      <img src="/assets/img/Wes.jpg" alt="Wesley Jakob Gilbert" loading="eager" />
     </div>
   </div>
 </section>
 
-<!-- ── Focus areas ───────────────────────────────────────────────────────── -->
-<section id="focus">
-  <div class="section">
-    <p class="section-label">What I work on</p>
-    <h2 class="section-title">Research &amp; Engineering</h2>
-    <div class="focus-grid fade-in-group">
-      {% for area in site.focus_areas %}
-      <div class="focus-card">
-        <p class="focus-number">{{ area.number }}</p>
-        <h3 class="focus-title">{{ area.title }}</h3>
-        <p class="focus-desc">{{ area.description }}</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
+<section aria-labelledby="focus-heading">
+  <h2 id="focus-heading">Focus</h2>
+  <dl>
+    {% for area in site.focus_areas %}
+    <dt>{% if area.url %}<a href="{{ area.url }}" target="_blank" rel="noopener noreferrer">{{ area.title }}</a>{% else %}{{ area.title }}{% endif %}</dt>
+    <dd>{{ area.description }}</dd>
+    {% endfor %}
+  </dl>
 </section>
 
+<section aria-labelledby="writing-heading">
+  <h2 id="writing-heading">Writing</h2>
+  <ul>
+    {% for article in articles %}
+    <li><a href="{{ article.url }}">{{ article.title }}</a>{% if article.date %} — <span class="muted">{{ article.date }}</span>{% endif %}</li>
+    {% else %}
+    <li><span class="muted">No articles yet.</span></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="elsewhere-mobile" aria-labelledby="elsewhere-heading">
+  <h2 id="elsewhere-heading">Elsewhere</h2>
+  <ul>
+    {% for item in site.elsewhere %}
+    <li><a href="{{ item.url }}"{% if item.url.startswith('http') %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<!-- OUTLINE: /portfolio subpage lands in Phase 2 once the drawing pad arrives. Will host the Blender bird-flock hero animation as full-viewport background plus CG art gallery. Wes to write intro copy at that time. -->
+
+<blockquote class="motto">
+  <p><em>&ldquo;{{ site.motto }}&rdquo;</em></p>
+  {% if site.motto_attribution %}<p class="motto-attr">&mdash; {{ site.motto_attribution }}</p>{% endif %}
+</blockquote>
+
+{% if site.motto_footer %}
+<p class="motto-footer"><em>{{ site.motto_footer }}</em></p>
+{% endif %}
 {% endblock %}

@@ -1,36 +1,47 @@
 {
   "title": "Wesley Gilbert",
   "tagline": "Biophysicist · Engineer · Builder",
-  "description": "Biophysicist and engineer working at the intersection of synthetic biology, computational biophysics, and semiconductor infrastructure.",
-  "motto": "Aut inveniam viam aut faciam",
+  "description": "Personal blog, portfolio, and general forum of self-expression for Wesley J. Gilbert — semiconductor engineer at Intel, biophysicist by training, builder of open-source scientific tools.",
+  "motto": "I only know that I know nothing.",
+  "motto_attribution": "Socrates",
+  "motto_footer": "Aut inveniam viam aut faciam",
   "url": "https://wesley-j-gilbert.com",
   "author": {
     "name": "Wesley J. Gilbert",
     "email": "wslgilbert50@gmail.com",
-    "github": "https://github.com/PLACEHOLDER",
-    "linkedin": "https://linkedin.com/in/PLACEHOLDER",
-    "youtube": "https://youtube.com/@PLACEHOLDER",
-    "twitter": "PLACEHOLDER"
+    "github":   "https://github.com/Wesley-Jakob-Gilbert",
+    "linkedin": "https://www.linkedin.com/in/wes-j-gilbert",
+    "youtube":  "https://www.youtube.com/channel/UCTPW-KFRLMGWXwxvR8vFcUg",
+    "twitter":  "WesleyGilbert12"
   },
   "about": {
-    "short": "I'm a biophysicist and engineer chasing problems at the edge of what's possible — from the mechanics of living cells to the manufacturing of next-generation chips.",
-    "extended": "My work spans synthetic biology, computational biophysics, and semiconductor packaging. I build open-source tools, write about the science, and try to leave every system I touch more understandable than I found it."
+    "short": "Welcome to my personal blog, portfolio, and general forum of self-expression. Here you'll find my scientific interests, links to my work, and my socials.",
+    "extended": "I'm a curious individual. I love to learn and apply what I learn to what I deem the most important problems for humanity. We live in a time where humanity has more power and responsibility than ever before. I hope to bring solutions to the existential problems stemming from this. My primary focus is human augmentation through genetic engineering, morphological manipulation, and synthetic biology."
   },
   "focus_areas": [
     {
       "number": "01",
-      "title": "Synthetic Biology",
-      "description": "Genetic engineering, lipid nanoparticle delivery systems, and the molecular machinery of living cells. Currently developing open-source tools for LNP formulation prediction."
+      "title": "LNP-EE-Predictor",
+      "url": "https://github.com/Wesley-Jakob-Gilbert/lipid-nanoparticle-ee-predictor",
+      "description": "Building on work by the LNP Atlas and LNPDB groups at the Korea Institute for Science and Technology and MIT, curating an open-source database of lipid nanoparticle formulations for ML analysis. Developing, alongside Constantinos Skevofilax, a dockerized API with pre-processing, ML training, and analysis code in Python to predict encapsulation efficiency of novel LNP formulations."
     },
     {
       "number": "02",
-      "title": "Computational Biophysics",
-      "description": "Finite element analysis of bone remodeling, cellular mechanobiology, and the numerical methods that turn biology into tractable equations."
+      "title": "Cranio-Facial FEA",
+      "url": "https://github.com/Wesley-Jakob-Gilbert/cranio-facial-fea",
+      "description": "A finite element analysis model for cranio-facial bone remodeling, focused on orthotropic pressures — tongue pressure vs. mouth breathing — and their long-term morphological effects."
     },
     {
       "number": "03",
-      "title": "Systems & Infrastructure",
-      "description": "Disaggregated semiconductor packaging at Intel, containerized APIs, cloud deployment, and the engineering discipline of making complex systems reliable at scale."
+      "title": "Disaggregated Packaging at Intel",
+      "description": "Advanced semiconductor packaging at Intel's Fab 9 in Albuquerque. Maintenance of the singulated die sort toolset, SOP design, process health monitoring, and QMS development. Ramped module availability from ~50% to ~92% as owner of operational indicators, reduced backside mylar residue defect rate from 18% to 0% over three months, and deployed a new operational-efficiency analytics dashboard."
     }
+  ],
+  "elsewhere": [
+    {"label": "GitHub",   "url": "https://github.com/Wesley-Jakob-Gilbert",                        "note": "Open-source code"},
+    {"label": "LinkedIn", "url": "https://www.linkedin.com/in/wes-j-gilbert",                      "note": "Professional background"},
+    {"label": "YouTube",  "url": "https://www.youtube.com/channel/UCTPW-KFRLMGWXwxvR8vFcUg",       "note": "Lipid nanoparticles, bone remodeling, genetic engineering, BMIs"},
+    {"label": "X",        "url": "https://x.com/WesleyGilbert12",                                  "note": "Short-form"},
+    {"label": "Email",    "url": "mailto:wslgilbert50@gmail.com",                                  "note": "wslgilbert50@gmail.com"}
   ]
 }
