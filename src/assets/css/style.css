@@ -391,7 +391,8 @@ li {
   margin: 2.5rem 0;
 }
 
-.article-figure img {
+.article-figure img,
+.article-figure video {
   display: block;
   width: 100%;
   height: auto;

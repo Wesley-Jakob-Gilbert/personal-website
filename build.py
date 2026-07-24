@@ -155,7 +155,7 @@ def build() -> None:
     write_sitemap(site, articles)
     write_robots(site)
 
-    print(f"Built {1 + 1 + len(articles)} pages → {DIST}/")
+    print(f"Built {1 + 1 + len(articles)} pages -> {DIST}/")
 
 
 if __name__ == "__main__":
