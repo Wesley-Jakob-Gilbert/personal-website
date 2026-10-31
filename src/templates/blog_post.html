@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} — {{ site.title }}{% endblock %}
+{% block description %}{{ post.excerpt }}{% endblock %}
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.excerpt }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_url %}{{ post.url }}{% endblock %}
+{% block canonical %}{{ post.url }}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ post.title }}",
+  "description": "{{ post.excerpt }}",
+  "datePublished": "{{ post.date }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "url": "{{ site.url }}{{ post.url }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="article">
+  <header class="article-header">
+    <p class="article-meta">{{ site.author.name }}{% if post.date %} — {{ post.date }}{% endif %}</p>
+    <h1>{{ post.title }}</h1>
+    {% if post.origin_url %}
+    <p class="muted">{{ post.origin_label | default("Originally posted on X") }}: <a href="{{ post.origin_url }}" target="_blank" rel="noopener noreferrer">{{ post.origin_url }}</a></p>
+    {% elif post.excerpt %}
+    <p class="muted">{{ post.excerpt }}</p>
+    {% endif %}
+  </header>
+
+  <div class="article-body">
+    {{ post.content | safe }}
+  </div>
+</article>
+{% endblock %}

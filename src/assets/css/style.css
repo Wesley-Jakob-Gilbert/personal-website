@@ -80,6 +80,13 @@ button {
   pointer-events: none;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  pointer-events: none;
+}
+
 .nav-logo {
   pointer-events: auto;
   color: var(--text);
@@ -87,6 +94,20 @@ button {
   font-size: 1rem;
   line-height: 1;
   text-decoration: none;
+}
+
+.nav-link {
+  pointer-events: auto;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--accent);
 }
 
 /* Social rail: desktop-only vertical sidebar on the left edge */

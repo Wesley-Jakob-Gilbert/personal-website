@@ -82,6 +82,30 @@ def parse_articles() -> list[dict]:
     return articles
 
 
+def parse_blog_posts() -> list[dict]:
+    posts = []
+    blog_src = SRC / "pages" / "blog"
+    if not blog_src.exists():
+        return posts
+
+    for md_file in sorted(blog_src.glob("*.md"), reverse=True):
+        post = frontmatter.load(md_file)
+        MD.reset()  # reset state between files (toc, etc.)
+        html_body = MD.convert(post.content)
+
+        posts.append(
+            {
+                "slug": md_file.stem,
+                "url": f"/blog/{md_file.stem}/",
+                "content": html_body,
+                **post.metadata,  # title, date, tags, excerpt, ...
+            }
+        )
+
+    posts.sort(key=lambda p: p.get("date", ""), reverse=True)
+    return posts
+
+
 def render_home(env: Environment, site: dict, articles: list[dict]) -> None:
     tmpl = env.get_template("home.html")
     (DIST / "index.html").write_text(
@@ -107,19 +131,44 @@ def render_article_pages(env: Environment, site: dict, articles: list[dict]) -> 
         )
 
 
-def write_sitemap(site: dict, articles: list[dict]) -> None:
+def render_blog_index(env: Environment, site: dict, posts: list[dict]) -> None:
+    (DIST / "blog").mkdir(exist_ok=True)
+    tmpl = env.get_template("blog_index.html")
+    (DIST / "blog" / "index.html").write_text(
+        tmpl.render(site=site, posts=posts), encoding="utf-8"
+    )
+
+
+def render_blog_pages(env: Environment, site: dict, posts: list[dict]) -> None:
+    tmpl = env.get_template("blog_post.html")
+    for post in posts:
+        out_dir = DIST / "blog" / post["slug"]
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / "index.html").write_text(
+            tmpl.render(site=site, post=post), encoding="utf-8"
+        )
+
+
+def write_sitemap(site: dict, articles: list[dict], posts: list[dict]) -> None:
     base = site["url"].rstrip("/")
     today = date.today().isoformat()
 
     urls = [
         f"  <url><loc>{base}/</loc><lastmod>{today}</lastmod><priority>1.0</priority></url>",
         f"  <url><loc>{base}/articles/</loc><lastmod>{today}</lastmod><priority>0.8</priority></url>",
+        f"  <url><loc>{base}/blog/</loc><lastmod>{today}</lastmod><priority>0.8</priority></url>",
     ]
     for article in articles:
         urls.append(
             f"  <url><loc>{base}{article['url']}</loc>"
             f"<lastmod>{article.get('date', today)}</lastmod>"
             f"<priority>0.7</priority></url>"
+        )
+    for post in posts:
+        urls.append(
+            f"  <url><loc>{base}{post['url']}</loc>"
+            f"<lastmod>{post.get('date', today)}</lastmod>"
+            f"<priority>0.6</priority></url>"
         )
 
     sitemap = (
@@ -147,15 +196,18 @@ def build() -> None:
     site     = load_site()
     env      = build_jinja_env()
     articles = parse_articles()
+    posts    = parse_blog_posts()
 
     copy_assets()
     render_home(env, site, articles)
     render_articles_index(env, site, articles)
     render_article_pages(env, site, articles)
-    write_sitemap(site, articles)
+    render_blog_index(env, site, posts)
+    render_blog_pages(env, site, posts)
+    write_sitemap(site, articles, posts)
     write_robots(site)
 
-    print(f"Built {1 + 1 + len(articles)} pages -> {DIST}/")
+    print(f"Built {1 + 1 + len(articles) + 1 + len(posts)} pages -> {DIST}/")
 
 
 if __name__ == "__main__":
