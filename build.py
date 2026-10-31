@@ -21,6 +21,7 @@ Running locally
 The Dockerfile runs this automatically at image build time.
 """
 
+import hashlib
 import json
 import shutil
 from pathlib import Path
@@ -41,7 +42,15 @@ MD = md_lib.Markdown(
 
 def load_site() -> dict:
     with open(SRC / "data" / "site.json", encoding="utf-8") as f:
-        return json.load(f)
+        site = json.load(f)
+
+    # nginx caches /assets/ for 1 year as immutable, so a cache-busting query
+    # param on the stylesheet is the only way returning visitors pick up CSS
+    # changes without a hard refresh.
+    style_css = SRC / "assets" / "css" / "style.css"
+    site["asset_version"] = hashlib.sha256(style_css.read_bytes()).hexdigest()[:10]
+
+    return site
 
 
 def build_jinja_env() -> Environment:
